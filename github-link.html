@@ -1,0 +1,75 @@
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../iron-flex-layout/iron-flex-layout.html">
+
+<!--
+`github-link`
+@demo demo/index.html 
+-->
+
+<dom-module id="github-link">
+<template>
+    <style>
+    :host {
+        display: block;
+    }
+    a{
+        text-decoration: none;
+        color: black;
+    }
+        a:hover{
+        text-decoration: underline;
+        color: black;
+    }
+    .container {
+        cursor: hand;
+        cursor: pointer;
+        @apply(--layout-horizontal);
+    }
+    p {
+        margin: 0px 0px 0px 5px;
+        @apply(--layout-flex-none)
+    }
+    </style>
+
+<a href="{{href}}" target="_blank" style="color:{{color}}">
+    <div class="container">
+
+        <svg  viewBox="0 0 16.73 16.32" style="height:{{height}};fill:{{color}}; padding-left: 15px">
+            <path d="M11.46,16.53a1.53,1.53,0,0,1-.25.08,0.41,0.41,0,0,1-.53-0.44c0-.61,0-1.22,0-1.83a2.6,2.6,0,0,0-.54-2c0.32-.06.6-0.1,0.88-0.16a3.45,3.45,0,0,0,2.9-3.49,3.53,3.53,0,0,0-.76-2.64,0.32,0.32,0,0,1,0-.26,3.21,3.21,0,0,0-.08-1.88,0.24,0.24,0,0,0-.29-0.19,2.91,2.91,0,0,0-1.46.51,1.53,1.53,0,0,1-1.3.23,7.31,7.31,0,0,0-3.29.08,0.6,0.6,0,0,1-.4-0.08A5.23,5.23,0,0,0,4.7,3.79c-0.46-.09-0.5-0.07-0.62.38a3.09,3.09,0,0,0,0,1.68A0.34,0.34,0,0,1,4,6.11C2.8,7.46,3.24,10,4.06,11a3.92,3.92,0,0,0,2.41,1.28L7,12.36c-0.14.36-.27,0.71-0.41,1a0.35,0.35,0,0,1-.19.15,1.71,1.71,0,0,1-2.23-.74A1.74,1.74,0,0,0,3,11.94H2.9L2.47,12a1.17,1.17,0,0,0,.25.33,2.41,2.41,0,0,1,.95,1.18,1.82,1.82,0,0,0,1.68,1.17c0.38,0,.76,0,1.18,0,0,0.47,0,1,0,1.55,0,0.29-.3.4-0.65,0.29a7.56,7.56,0,0,1-2.52-1.4A8,8,0,0,1,.54,6.56,7.94,7.94,0,0,1,7.17.44,8.36,8.36,0,0,1,11.46,16.53ZM7,12.34v0H7ZM4.81,13.85A1.07,1.07,0,0,0,5,14a0.54,0.54,0,0,0,.18-0.13,1.63,1.63,0,0,0-.3-0.11A0.3,0.3,0,0,0,4.81,13.85ZM5.49,14a0.21,0.21,0,0,0,.17.11A0.42,0.42,0,0,0,5.83,14l-0.26-.23A0.6,0.6,0,0,0,5.49,14Zm0.83-.2a0.67,0.67,0,0,0-.19.13l0.14,0.17,0.2-.18A0.34,0.34,0,0,0,6.32,13.76Zm-2.06-.28a1.87,1.87,0,0,0,.18.24,0.7,0.7,0,0,0,.1-0.17,0.92,0.92,0,0,0-.19-0.17A0.29,0.29,0,0,0,4.26,13.48Z" transform="translate(-0.23 -0.3)"/>
+        </svg>
+
+        <template is="dom-if" if="{{text}}">
+            <p style="color:{{color}}; font-size: {{height}};">github<p>
+        </template>
+    </div>
+</a>
+
+</template>
+
+<script>
+    Polymer({
+
+    is: 'github-link',
+
+    properties: {
+        href: {
+            type: String,
+        },
+        text: {
+            type: Boolean,
+            value: false,
+        },
+        color: {
+            type: String,
+            value: "black"
+        },
+        height: {
+            type: String,
+            value: "11px"
+        },
+    },
+
+
+    });
+</script>
+</dom-module>

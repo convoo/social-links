@@ -1,0 +1,75 @@
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../iron-flex-layout/iron-flex-layout.html">
+
+<!--
+`youtube-link`
+@demo demo/index.html 
+-->
+
+<dom-module id="youtube-link">
+<template>
+    <style>
+    :host {
+        display: block;
+    }
+    a{
+        text-decoration: none;
+        color: black;
+    }
+        a:hover{
+        text-decoration: underline;
+        color: black;
+    }
+    .container {
+        cursor: hand;
+        cursor: pointer;
+        @apply(--layout-horizontal);
+    }
+    p {
+        margin: 0px 0px 0px 5px;
+        @apply(--layout-flex-none)
+    }
+    </style>
+
+<a href="{{href}}" target="_blank" style="color:{{color}}">
+    <div class="container">
+
+    <svg  viewBox="0 0 22.74 15.92" style="height:{{height}};fill:{{color}}; padding-left: 15px">
+        <path d="M23,4a3.4,3.4,0,0,0-3.4-3.4H3.69A3.4,3.4,0,0,0,.29,4v9.12a3.4,3.4,0,0,0,3.4,3.4H19.63a3.4,3.4,0,0,0,3.4-3.4V4ZM9.39,12.43V3.87l6.49,4.28Zm0,0" transform="translate(-0.29 -0.63)" style="fill-rule:evenodd"/>
+    </svg>
+
+        <template is="dom-if" if="{{text}}">
+            <p style="color:{{color}}; font-size: {{height}};">YouTube<p>
+        </template>
+    </div>
+</a>
+
+</template>
+
+<script>
+    Polymer({
+
+    is: 'youtube-link',
+
+    properties: {
+        href: {
+            type: String,
+        },
+        text: {
+            type: Boolean,
+            value: false,
+        },
+        color: {
+            type: String,
+            value: "black"
+        },
+        height: {
+            type: String,
+            value: "11px"
+        },
+    },
+
+
+    });
+</script>
+</dom-module>

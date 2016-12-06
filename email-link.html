@@ -1,0 +1,78 @@
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../iron-flex-layout/iron-flex-layout.html">
+
+<!--
+`email-link`
+@demo demo/index.html 
+-->
+
+<dom-module id="email-link">
+<template>
+    <style>
+    :host {
+        display: block;
+    }
+    a{
+        text-decoration: none;
+        color: black;
+    }
+        a:hover{
+        text-decoration: underline;
+        color: black;
+    }
+    .container {
+        cursor: hand;
+        cursor: pointer;
+        @apply(--layout-horizontal);
+    }
+    p {
+        margin: 0px 0px 0px 5px;
+        @apply(--layout-flex-none)
+    }
+    </style>
+
+<a href="mailto:{{email}}" target="_blank" style="color:{{color}}">
+    <div class="container">
+
+
+
+        <svg viewBox="0 0 2.05 15.6" style="height:{{height}};fill:{{color}}; padding-left: 15px">
+        <path id="LinkedIn" d="M0.58,16.42H2.43V1H0.58v15.4Z" transform="translate(-0.48 -0.92)" style="stroke:#000;stroke-miterlimit:10;stroke-width:0.20000000298023224px"/>
+        </svg>
+
+        <template is="dom-if" if="{{text}}">
+            <p style="color:{{color}}; font-size: {{height}};">Contact us at {{email}}<p>
+        </template>
+    </div>
+</a>
+
+</template>
+
+<script>
+    Polymer({
+
+    is: 'email-link',
+
+    properties: {
+        text: {
+            type: Boolean,
+            value: false,
+        },
+        color: {
+            type: String,
+            value: "black"
+        },
+        height: {
+            type: String,
+            value: "11px"
+        },
+        email: {
+            type: String,
+            value: "info@convoo.me"
+        },
+    },
+
+
+    });
+</script>
+</dom-module>

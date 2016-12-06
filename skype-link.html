@@ -1,0 +1,76 @@
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../iron-flex-layout/iron-flex-layout.html">
+
+<!--
+`skype-link`
+@demo demo/index.html 
+-->
+
+<dom-module id="skype-link">
+<template>
+    <style>
+    :host {
+        display: block;
+    }
+    a{
+        text-decoration: none;
+        color: black;
+    }
+        a:hover{
+        text-decoration: underline;
+        color: black;
+    }
+    .container {
+        cursor: hand;
+        cursor: pointer;
+        @apply(--layout-horizontal);
+    }
+    p {
+        margin: 0px 0px 0px 5px;
+        @apply(--layout-flex-none)
+    }
+    </style>
+
+<a href="{{href}}" target="_blank" style="color:{{color}}">
+    <div class="container">
+
+    <svg viewBox="0 0 16.28 16.28" style="height:{{height}};fill:{{color}}; padding-left: 15px">
+        <path id="Skype" d="M15.82,9.62A7.55,7.55,0,0,0,8.36.88,7.63,7.63,0,0,0,7.18,1,4.57,4.57,0,0,0,.9,7.26,7.69,7.69,0,0,0,.81,8.44,7.56,7.56,0,0,0,9.54,15.9,4.57,4.57,0,0,0,15.82,9.62Zm-3.87,2.26A3.13,3.13,0,0,1,10.55,13a5.59,5.59,0,0,1-2.18.39,5.21,5.21,0,0,1-2.5-.53,3.23,3.23,0,0,1-1.14-1,2.22,2.22,0,0,1-.44-1.25,0.83,0.83,0,0,1,.27-0.62,1,1,0,0,1,.69-0.26,0.86,0.86,0,0,1,.57.2,1.53,1.53,0,0,1,.39.58,3.68,3.68,0,0,0,.41.74,1.64,1.64,0,0,0,.62.49,2.45,2.45,0,0,0,1.06.19,2.53,2.53,0,0,0,1.46-.39,1.13,1.13,0,0,0,.56-1A1,1,0,0,0,10,9.79a2,2,0,0,0-.78-0.44Q8.77,9.2,7.95,9a10.2,10.2,0,0,1-1.84-.56,3,3,0,0,1-1.18-.88A2.18,2.18,0,0,1,4.49,6.2,2.26,2.26,0,0,1,5,4.8a2.89,2.89,0,0,1,1.34-.94,5.82,5.82,0,0,1,2-.33A5.44,5.44,0,0,1,10,3.75a3.57,3.57,0,0,1,1.14.58,2.47,2.47,0,0,1,.67.76,1.66,1.66,0,0,1,.21.78,0.91,0.91,0,0,1-.27.64,0.89,0.89,0,0,1-.67.28,0.81,0.81,0,0,1-.56-0.17,2.22,2.22,0,0,1-.41-0.55,2.42,2.42,0,0,0-.66-0.82A2,2,0,0,0,8.2,5a2.26,2.26,0,0,0-1.26.32A0.9,0.9,0,0,0,6.46,6a0.72,0.72,0,0,0,.16.47,1.34,1.34,0,0,0,.45.34,3.1,3.1,0,0,0,.58.23l1,0.24q0.86,0.18,1.56.41a4.89,4.89,0,0,1,1.19.55,2.32,2.32,0,0,1,.77.82,2.47,2.47,0,0,1,.28,1.22A2.65,2.65,0,0,1,11.95,11.87Z" transform="translate(-0.22 -0.3)"/>
+    </svg>
+
+
+        <template is="dom-if" if="{{text}}">
+            <p style="color:{{color}}; font-size: {{height}};">Skype<p>
+        </template>
+    </div>
+</a>
+
+</template>
+
+<script>
+    Polymer({
+
+    is: 'skype-link',
+
+    properties: {
+        href: {
+            type: String,
+        },
+        text: {
+            type: Boolean,
+            value: false,
+        },
+        color: {
+            type: String,
+            value: "black"
+        },
+        height: {
+            type: String,
+            value: "11px"
+        },
+    },
+
+
+    });
+</script>
+</dom-module>

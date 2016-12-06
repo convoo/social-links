@@ -1,0 +1,76 @@
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../iron-flex-layout/iron-flex-layout.html">
+
+<!--
+`instagram-link`
+@demo demo/index.html 
+-->
+
+<dom-module id="instagram-link">
+<template>
+    <style>
+    :host {
+        display: block;
+    }
+    a{
+        text-decoration: none;
+        color: black;
+    }
+        a:hover{
+        text-decoration: underline;
+        color: black;
+    }
+    .container {
+        cursor: hand;
+        cursor: pointer;
+        @apply(--layout-horizontal);
+    }
+    p {
+        margin: 0px 0px 0px 5px;
+        @apply(--layout-flex-none)
+    }
+    </style>
+
+<a href="{{href}}" target="_blank" style="color:{{color}}">
+    <div class="container">
+
+        <svg viewBox="0 0 16.47 16.47" style="height:{{height}};fill:{{color}}; padding-left: 15px">
+        <path d="M12.21,0.27H4.83A4.55,4.55,0,0,0,.28,4.82V12.2a4.55,4.55,0,0,0,4.54,4.55h7.38a4.55,4.55,0,0,0,4.55-4.55V4.82A4.55,4.55,0,0,0,12.21.27ZM15.29,12.2a3.09,3.09,0,0,1-3.08,3.08H4.83A3.09,3.09,0,0,1,1.75,12.2V4.82A3.09,3.09,0,0,1,4.83,1.73h7.38a3.09,3.09,0,0,1,3.08,3.08V12.2h0Z" transform="translate(-0.28 -0.27)"/><path d="M8.52,4.26a4.24,4.24,0,1,0,4.24,4.24A4.25,4.25,0,0,0,8.52,4.26Zm0,7A2.78,2.78,0,1,1,11.3,8.51,2.79,2.79,0,0,1,8.52,11.29Z" transform="translate(-0.28 -0.27)"/><path d="M12.94,3a1.07,1.07,0,1,0,.76.31A1.08,1.08,0,0,0,12.94,3Z" transform="translate(-0.28 -0.27)"/></svg>
+
+
+
+        <template is="dom-if" if="{{text}}">
+            <p style="color:{{color}}; font-size: {{height}};">instagram<p>
+        </template>
+    </div>
+</a>
+
+</template>
+
+<script>
+    Polymer({
+
+    is: 'instagram-link',
+
+    properties: {
+        href: {
+            type: String,
+        },
+        text: {
+            type: Boolean,
+            value: false,
+        },
+        color: {
+            type: String,
+            value: "black"
+        },
+        height: {
+            type: String,
+            value: "11px"
+        },
+    },
+
+
+    });
+</script>
+</dom-module>

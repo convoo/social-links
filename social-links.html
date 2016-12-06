@@ -1,0 +1,32 @@
+<link rel="import" href="../polymer/polymer.html">
+
+<!--
+`social-links`
+@demo demo/index.html 
+-->
+
+<dom-module id="social-links">
+<template>
+    <style>
+    :host {
+        display: block;
+    }
+    </style>
+    <h2>Hello [[prop1]]</h2>
+</template>
+
+<script>
+    Polymer({
+
+    is: 'social-links',
+
+    properties: {
+        prop1: {
+        type: String,
+        value: 'social-links',
+        },
+    },
+
+    });
+</script>
+</dom-module>

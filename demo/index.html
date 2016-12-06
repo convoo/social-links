@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
+
+    <title>social-links demo</title>
+
+    <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
+
+    <link rel="import" href="../../iron-demo-helpers/demo-pages-shared-styles.html">
+    <link rel="import" href="../../iron-demo-helpers/demo-snippet.html">
+    <link rel="import" href="../social-links.html">
+    <link rel="import" href="../twitter-link.html">
+    <link rel="import" href="../facebook-link.html">
+    <link rel="import" href="../linkedin-link.html">
+    <link rel="import" href="../email-link.html">
+    <link rel="import" href="../behance-link.html">
+    <link rel="import" href="../youtube-link.html">
+    <link rel="import" href="../skype-link.html">
+    <link rel="import" href="../vimeo-link.html">
+    <link rel="import" href="../pinterest-link.html">
+    <link rel="import" href="../github-link.html">
+    <link rel="import" href="../instagram-link.html">
+    <link rel="import" href="../dribbble-link.html">
+    <link rel="import" href="../../iron-flex-layout/iron-flex-layout.html">
+
+    <style is="custom-style" include="demo-pages-shared-styles">
+    .container {
+        font-size: 11px;
+        @apply(--layout-horizontal);
+    }
+    </style>
+  </head>
+  <body>
+    <div class="vertical-section-container centered">
+
+      <h3>Minimal social-links demo</h3>
+      <demo-snippet style="width:800px">
+        <template>
+            <div class="container">
+                <twitter-link href="https://www.twitter.com/@bkawk" height="20px" color="grey"></twitter-link>
+                <vimeo-link href="https://www.vimeo.com/@bkawk" height="20px" color="grey"></vimeo-link>
+                <skype-link href="https://www.skype.com/@bkawk" height="20px" color="grey"></skype-link>
+                <youtube-link href="https://www.youtube.com/@bkawk" height="20px" color="grey"></youtube-link>
+                <pinterest-link href="https://www.pinterest.com/@bkawk" height="20px" color="grey"></pinterest-link>
+                <github-link href="https://www.github.com/@bkawk" height="20px" color="grey"></github-link>
+                <instagram-link href="https://www.instagram.com/@bkawk" height="20px" color="grey"></instagram-link>
+                <dribbble-link href="https://www.dribbble.com/@bkawk" height="20px" color="grey"></dribbble-link>
+            </div>
+        </template>
+      </demo-snippet>
+
+      <h3>Basic social-links demo</h3>
+      <demo-snippet style="width:800px">
+        <template>
+            <div class="container">
+                Follow us on
+                <twitter-link href="https://www.twitter.com/@bkawk" ></twitter-link>
+                <facebook-link href="https://www.facebook.com/@bkawk" ></facebook-link>
+                <linkedin-link href="https://www.linkedin.com/@bkawk" ></linkedin-link>
+                <behance-link href="https://www.behance.com/@bkawk" ></behance-link>
+                <email-link email="info@convoo.me" text></email-link>
+            </div>
+        </template>
+      </demo-snippet>
+
+    <h3>Expanded social-links demo</h3>
+      <demo-snippet style="width:800px">
+        <template>
+            <div class="container">
+                Follow us on
+                <twitter-link href="https://www.twitter.com/@bkawk" text></twitter-link>
+                <facebook-link href="https://www.facebook.com/@bkawk" text></facebook-link>
+                <linkedin-link href="https://www.linkedin.com/@bkawk" text></linkedin-link>
+                <behance-link href="https://www.behance.com/@bkawk" text></behance-link>
+                <email-link email="info@convoo.me" text></email-link>
+            </div>
+        </template>
+      </demo-snippet>
+    </div>
+  </body>
+</html>
