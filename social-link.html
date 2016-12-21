@@ -1,0 +1,108 @@
+<link rel="import" href="../polymer/polymer.html">
+
+<link rel="import" href="twitter-link.html">
+<link rel="import" href="facebook-link.html">
+<link rel="import" href="linkedin-link.html">
+<link rel="import" href="email-link.html">
+<link rel="import" href="behance-link.html">
+<link rel="import" href="youtube-link.html">
+<link rel="import" href="skype-link.html">
+<link rel="import" href="vimeo-link.html">
+<link rel="import" href="pinterest-link.html">
+<link rel="import" href="github-link.html">
+<link rel="import" href="instagram-link.html">
+<link rel="import" href="dribbble-link.html">
+<link rel="import" href="convoo-link.html">
+<link rel="import" href="snapchat-link.html">
+
+<!--
+`social-link`
+@demo demo/index.html 
+-->
+
+<dom-module id="social-link">
+<template>
+    <style>
+    :host {
+        display: block;
+    }
+    </style>
+
+    <template is="dom-if" if="{{_isNetwork(network,'twitter')}}">
+        <twitter-link href="[[href]]" text="[[text]]" color="[[color]]" height="[[height]]"></twitter-link>
+    </template>
+    <template is="dom-if" if="{{_isNetwork(network,'facebook')}}">
+        <facebook-link href="[[href]]" text="[[text]]" color="[[color]]" height="[[height]]"></facebook-link>
+    </template>
+    <template is="dom-if" if="{{_isNetwork(network,'linkedin')}}">
+        <linkedin-link href="[[href]]" text="[[text]]" color="[[color]]" height="[[height]]"></linkedin-link>
+    </template>
+    <template is="dom-if" if="{{_isNetwork(network,'email')}}">
+        <email-link href="[[href]]" text="[[text]]" color="[[color]]" height="[[height]]"></email-link>
+    </template>
+    <template is="dom-if" if="{{_isNetwork(network,'behance')}}">
+        <behance-link href="[[href]]" text="[[text]]" color="[[color]]" height="[[height]]"></behance-link>
+    </template>
+    <template is="dom-if" if="{{_isNetwork(network,'youtube')}}">
+        <youtube-link href="[[href]]" text="[[text]]" color="[[color]]" height="[[height]]"></youtube-link>
+    </template>
+    <template is="dom-if" if="{{_isNetwork(network,'skype')}}">
+        <skype-link href="[[href]]" text="[[text]]" color="[[color]]" height="[[height]]"></skype-link>
+    </template>
+    <template is="dom-if" if="{{_isNetwork(network,'vimeo')}}">
+        <vimeo-link href="[[href]]" text="[[text]]" color="[[color]]" height="[[height]]"></vimeo-link>
+    </template>
+    <template is="dom-if" if="{{_isNetwork(network,'pinterest')}}">
+        <pinterest-link href="[[href]]" text="[[text]]" color="[[color]]" height="[[height]]"></pinterest-link>
+    </template>
+    <template is="dom-if" if="{{_isNetwork(network,'github')}}">
+        <github-link href="[[href]]" text="[[text]]" color="[[color]]" height="[[height]]"></github-link>
+    </template>
+    <template is="dom-if" if="{{_isNetwork(network,'instagram')}}">
+        <instagram-link href="[[href]]" text="[[text]]" color="[[color]]" height="[[height]]"></instagram-link>
+    </template>
+    <template is="dom-if" if="{{_isNetwork(network,'dribbble')}}">
+        <dribbble-link href="[[href]]" text="[[text]]" color="[[color]]" height="[[height]]"></dribbble-link>
+    </template>
+    <template is="dom-if" if="{{_isNetwork(network,'convoo')}}">
+        <convoo-link href="[[href]]" text="[[text]]" color="[[color]]" height="[[height]]"></convoo-link>
+    </template>
+    <template is="dom-if" if="{{_isNetwork(network,'snapchat')}}">
+        <snapchat-link href="[[href]]" text="[[text]]" color="[[color]]" height="[[height]]"></snapchat-link>
+    </template>
+    
+</template>
+
+<script>
+    Polymer({
+
+    is: 'social-link',
+
+    properties: {
+        network: {
+            type: String
+        },
+        href: {
+            type: String,
+        },
+        text: {
+            type: Boolean,
+            value: false,
+        },
+        color: {
+            type: String,
+            value: "black"
+        },
+        height: {
+            type: String,
+            value: "11px"
+        },
+    },
+
+    _isNetwork: function(thisNetwork,network){
+        return thisNetwork == network;
+    }
+
+    });
+</script>
+</dom-module>
