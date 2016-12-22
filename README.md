@@ -45,6 +45,7 @@ In some cases, you may want to pass the network name as a variable - that's why 
 -->
 ```html
 <social-link network="twitter" href="https://www.twitter.com/@bkawk" height="15px" color="grey"></social-link>
+<br><br>
 <twitter-link href="https://www.twitter.com/@bkawk" height="15px" color="grey"></twitter-link>
 ```
 
