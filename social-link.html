@@ -1,5 +1,6 @@
 <link rel="import" href="../polymer/polymer.html">
 
+<link rel="import" href="social-link-behavior.html">
 <link rel="import" href="twitter-link.html">
 <link rel="import" href="facebook-link.html">
 <link rel="import" href="linkedin-link.html">
@@ -77,26 +78,14 @@
     Polymer({
 
     is: 'social-link',
+    behaviors: [
+        SocialLinkBehavior
+    ],
 
     properties: {
         network: {
             type: String
-        },
-        href: {
-            type: String,
-        },
-        text: {
-            type: Boolean,
-            value: false,
-        },
-        color: {
-            type: String,
-            value: "black"
-        },
-        height: {
-            type: String,
-            value: "11px"
-        },
+        }
     },
 
     _isNetwork: function(thisNetwork,network){

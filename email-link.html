@@ -1,5 +1,6 @@
 <link rel="import" href="../polymer/polymer.html">
 <link rel="import" href="../iron-flex-layout/iron-flex-layout.html">
+<link rel="import" href="social-link-behavior.html">
 
 <!--
 `email-link`
@@ -52,26 +53,9 @@
     Polymer({
 
     is: 'email-link',
-
-    properties: {
-        text: {
-            type: Boolean,
-            value: false,
-        },
-        color: {
-            type: String,
-            value: "black"
-        },
-        height: {
-            type: String,
-            value: "11px"
-        },
-        email: {
-            type: String,
-            value: "info@convoo.me"
-        },
-    },
-
+    behaviors: [
+        SocialLinkBehavior
+    ]
 
     });
 </script>
