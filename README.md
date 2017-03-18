@@ -1,7 +1,7 @@
 # Social-Links
 
 <p align="center">
-  <img alt="social-links" src="SocialLinks400.png" width="200">
+  <img alt="social-links" src="Social-Links.png" width="200">
 </p>
 
 <p align="center">
@@ -10,7 +10,8 @@ Simple way to add links to social networks with their logos.
 
 <p align="center">
   <a href="https://beta.webcomponents.org/element/convoo/social-links"><img src="https://img.shields.io/badge/webcomponents.org-published-blue.svg"></a>
-  <a href="https://gitter.im/convoo/general"><img src="https://img.shields.io/badge/gitter-join%20chat-brightgreen.svg"></a>
+  <a href="https://gitter.im/convoo/General"><img src="https://img.shields.io/badge/gitter-join%20chat-brightgreen.svg"></a>
+  <a href="http://waffle.io/convoo/roadmap"><img src="https://badge.waffle.io/convoo/social-links.svg?label=In%20Progress&title=In%20Progress"></a>
 </p>
 
 ---
