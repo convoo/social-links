@@ -57,6 +57,7 @@ Currently available networks are:
 * email
 * facebook
 * github
+* gitlab
 * instagram
 * linkedin
 * pinterest
@@ -92,6 +93,7 @@ Currently available networks are:
 <convoo-link href="https://www.convoo.me/@bkawk" height="15px"></convoo-link>
 <snapchat-link href="https://www.snapchat.com/@bkawk" height="15px"></snapchat-link>
 <github-link href="https://www.github.com/@bkawk" height="15px"></github-link>
+<gitlab-link href="https://www.gitlab.com/@bkawk" height="15px"></gitlab-link>
 <instagram-link href="https://www.instagram.com/@bkawk" height="15px"></instagram-link>
 <dribbble-link href="https://www.dribbble.com/@bkawk" height="15px"></dribbble-link>
 ```
