@@ -47,6 +47,9 @@
     <template is="dom-if" if="{{_isNetwork(network,'github')}}">
         <github-link href="[[href]]" text="[[text]]" color="[[color]]" height="[[height]]"></github-link>
     </template>
+    <template is="dom-if" if="{{_isNetwork(network,'gitlab')}}">
+        <gitlab-link href="[[href]]" text="[[text]]" color="[[color]]" height="[[height]]"></gitlab-link>
+    </template>
     <template is="dom-if" if="{{_isNetwork(network,'instagram')}}">
         <instagram-link href="[[href]]" text="[[text]]" color="[[color]]" height="[[height]]"></instagram-link>
     </template>
