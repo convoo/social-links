@@ -1,62 +1,76 @@
-<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../polymer/polymer-element.html">
 <link rel="import" href="../iron-flex-layout/iron-flex-layout.html">
 <link rel="import" href="social-link-behavior.html">
-
 <!--
 `email-link`
-@demo demo/index.html 
+Sample usage of this element
+Example:
+    <email-link></email-link>
+Example:
+    <email-link>
+      <h2>Hello email-link</h2>
+   </email-link>
+@demo demo/index.html
 -->
-
 <dom-module id="email-link">
-<template>
-    <style>
-    :host {
-        display: inline-block;
-    }
-    a{
-        text-decoration: none;
-        color: black;
-    }
-        a:hover{
-        text-decoration: underline;
-        color: black;
-    }
-    .container {
-        cursor: hand;
-        cursor: pointer;
-        @apply(--layout-horizontal);
-    }
-    p {
-        margin: 0px 0px 0px 5px;
-        @apply(--layout-flex-none)
-    }
-    </style>
+    <template>
+        <style>
+             :host {
+                display: inline-block;
+            }
 
-<a href="mailto:{{email}}" target="_blank" style="color:{{color}}">
-    <div class="container">
+            a {
+                text-decoration: none;
+                color: black;
+            }
+
+            a:hover {
+                text-decoration: underline;
+                color: black;
+            }
+
+            .container {
+                cursor: hand;
+                cursor: pointer;
+                @apply(--layout-horizontal);
+            }
+
+            p {
+                margin: 0px 0px 0px 5px;
+                @apply(--layout-flex-none)
+            }
+        </style>
+
+        <a href="mailto:{{email}}" target="_blank" style="color:{{color}}">
+            <div class="container">
 
 
 
-        <svg viewBox="0 0 2.05 15.6" style="height:{{height}};fill:{{color}}; padding-left: 15px">
-        <path id="LinkedIn" d="M0.58,16.42H2.43V1H0.58v15.4Z" transform="translate(-0.48 -0.92)" style="stroke:#000;stroke-miterlimit:10;stroke-width:0.20000000298023224px"/>
-        </svg>
+                <svg viewBox="0 0 2.05 15.6" style="height:{{height}};fill:{{color}}; padding-left: 15px">
+                    <path id="LinkedIn" d="M0.58,16.42H2.43V1H0.58v15.4Z" transform="translate(-0.48 -0.92)" style="stroke:#000;stroke-miterlimit:10;stroke-width:0.20000000298023224px"
+                    />
+                </svg>
 
-        <template is="dom-if" if="{{text}}">
-            <p style="color:{{color}}; font-size: {{height}};">Contact us at {{email}}<p>
-        </template>
-    </div>
-</a>
+                <template is="dom-if" if="{{text}}">
+                    <p style="color:{{color}}; font-size: {{height}};">Contact us at {{email}}
+                        <p>
+                </template>
+            </div>
+        </a>
 
-</template>
-
-<script>
-    Polymer({
-
-    is: 'email-link',
-    behaviors: [
-        SocialLinkBehavior
-    ]
-
-    });
-</script>
+    </template>
+    <script>
+        class EmailLink extends Polymer.mixinBehaviors([SocialLinkBehavior], Polymer.Element) {
+            static get is() { return 'email-link'; }
+            static get properties() {
+                return {
+                    color: {
+                        type: String,
+                        value: 'red'
+                    }
+                };
+            }            
+        }
+        customElements.define(EmailLink.is, EmailLink);
+    </script>
 </dom-module>

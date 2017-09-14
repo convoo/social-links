@@ -1,67 +1,84 @@
-<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../polymer/polymer-element.html">
 <link rel="import" href="../iron-flex-layout/iron-flex-layout.html">
 <link rel="import" href="social-link-behavior.html">
-
 <!--
 `pinterest-link`
-@demo demo/index.html 
+Sample usage of this element
+Example:
+    <pinterest-link></pinterest-link>
+Example:
+    <pinterest-link>
+      <h2>Hello pinterest-link</h2>
+   </pinterest-link>
+@demo demo/index.html
 -->
-
 <dom-module id="pinterest-link">
-<template>
-    <style>
-    :host {
-        display: inline-block;
-    }
-    a{
-        text-decoration: none;
-        color: black;
-    }
-        a:hover{
-        text-decoration: underline;
-        color: black;
-    }
-    .container {
-        cursor: hand;
-        cursor: pointer;
-        @apply(--layout-horizontal);
-    }
-    p {
-        margin: 0px 0px 0px 5px;
-        @apply(--layout-flex-none)
-    }
-    </style>
+    <template>
+        <style>
+             :host {
+                display: inline-block;
+            }
 
-<a href="{{href}}" target="_blank" style="color:{{color}}">
-    <div class="container">
+            a {
+                text-decoration: none;
+                color: black;
+            }
 
-        <svg viewBox="0 0 16.36 16.36" style="height:{{height}};fill:{{color}}; padding-left: 15px">
-            <path id="Path" d="M4.3,1A6.06,6.06,0,0,0,.37,5.56a6.67,6.67,0,0,0,.43,4,4.46,4.46,0,0,0,.47.79,3.7,3.7,0,0,0,.29.34,3.43,3.43,0,0,0,.54-0.25A12.35,12.35,0,0,0,4,8.92c-2-2.36.12-5.28,2.82-5.93,2.51-.61,5.92.44,6.68,3a2.89,2.89,0,0,1-.76,3A3.38,3.38,0,0,1,11,9.82a4,4,0,0,1-1.09,0,4.63,4.63,0,0,1-.6-0.1C9,9.68,8.72,9.69,8.72,9.33V5.09c0-.29,0-0.23-0.21-0.26L7.94,4.77a8.26,8.26,0,0,0-2,0c-0.25,0-.26,0-0.26.27V7.3c0,1.58.12,3.18,0.05,4.75,0,0.47,0,1.6-.56,1.83S4,13.59,3.44,13.47c0.08,0.79-.42,2.36.5,2.76a3.8,3.8,0,0,0,2.71.2c1.87-.63,2.47-2.71,2.24-4.42a6.14,6.14,0,0,0,7.23-3.18,5.46,5.46,0,0,0-.81-5.73C12.83,0.13,7.8-.43,4.3,1Z" transform="translate(-0.24 -0.23)"/>
-        </svg>
+            a:hover {
+                text-decoration: underline;
+                color: black;
+            }
+
+            .container {
+                cursor: hand;
+                cursor: pointer;
+                @apply(--layout-horizontal);
+            }
+
+            p {
+                margin: 0px 0px 0px 5px;
+                @apply(--layout-flex-none)
+            }
+        </style>
+
+        <a href="{{href}}" target="_blank" style="color:{{color}}">
+            <div class="container">
+
+                <svg viewBox="0 0 16.36 16.36" style="height:{{height}};fill:{{color}}; padding-left: 15px">
+                    <path id="Path" d="M4.3,1A6.06,6.06,0,0,0,.37,5.56a6.67,6.67,0,0,0,.43,4,4.46,4.46,0,0,0,.47.79,3.7,3.7,0,0,0,.29.34,3.43,3.43,0,0,0,.54-0.25A12.35,12.35,0,0,0,4,8.92c-2-2.36.12-5.28,2.82-5.93,2.51-.61,5.92.44,6.68,3a2.89,2.89,0,0,1-.76,3A3.38,3.38,0,0,1,11,9.82a4,4,0,0,1-1.09,0,4.63,4.63,0,0,1-.6-0.1C9,9.68,8.72,9.69,8.72,9.33V5.09c0-.29,0-0.23-0.21-0.26L7.94,4.77a8.26,8.26,0,0,0-2,0c-0.25,0-.26,0-0.26.27V7.3c0,1.58.12,3.18,0.05,4.75,0,0.47,0,1.6-.56,1.83S4,13.59,3.44,13.47c0.08,0.79-.42,2.36.5,2.76a3.8,3.8,0,0,0,2.71.2c1.87-.63,2.47-2.71,2.24-4.42a6.14,6.14,0,0,0,7.23-3.18,5.46,5.46,0,0,0-.81-5.73C12.83,0.13,7.8-.43,4.3,1Z"
+                        transform="translate(-0.24 -0.23)" />
+                </svg>
 
 
 
-        <template is="dom-if" if="{{text}}">
-            <p style="color:{{color}}; font-size: {{height}};">pinterest<p>
-        </template>
-    </div>
-</a>
+                <template is="dom-if" if="{{text}}">
+                    <p style="color:{{color}}; font-size: {{height}};">pinterest
+                        <p>
+                </template>
+            </div>
+        </a>
 
-</template>
-
-<script>
-    Polymer({
-
-    is: 'pinterest-link',
-    behaviors: [
-        SocialLinkBehavior
-    ],
-    properties: {
-        color: {
-            value: "#bd081c"
+    </template>
+    <script>
+        class PinterestLink extends Polymer.mixinBehaviors([SocialLinkBehavior],Polymer.Element) {
+            static get is() { return 'pinterest-link'; }
+            static get properties() {
+                return {
+                    color: {
+                        type: String,
+                        value: '#3b5998'
+                    }
+                };
+            }
+            //static get observers() {return [];}
+            //static get actions() {return MixinActions();}
+            connectedCallback() {
+                super.connectedCallback();
+            }
+            ready() {
+                super.ready();
+            }
         }
-    }
-
-    });
-</script>
+        customElements.define(PinterestLink.is, PinterestLink);
+    </script>
 </dom-module>

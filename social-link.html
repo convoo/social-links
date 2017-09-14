@@ -1,85 +1,84 @@
-<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../polymer/polymer-element.html">
 
 <link rel="import" href="social-link-behavior.html">
 <link rel="import" href="social-links.html">
-
-
 <!--
 `social-link`
-@demo demo/index.html 
+Example:
+    <social-link></social-link>
+Example:
+    <social-link>
+      <h2>Hello social-link</h2>
+   </social-link>
+@demo demo/index.html
 -->
-
 <dom-module id="social-link">
-<template>
-    <style>
-    :host {
-        display: inline-block;
-    }
-    </style>
+    <template>
+        <style>
+             :host {
+                display: inline-block;
+            }
+        </style>
 
-    <template is="dom-if" if="{{_isNetwork(network,'twitter')}}">
-        <twitter-link href="[[href]]" text="[[text]]" color="[[color]]" height="[[height]]"></twitter-link>
+        <template is="dom-if" if="{{_isNetwork(network,'twitter')}}">
+            <twitter-link href="[[href]]" text="[[text]]" color="[[color]]" height="[[height]]"></twitter-link>
+        </template>
+        <template is="dom-if" if="{{_isNetwork(network,'facebook')}}">
+            <facebook-link href="[[href]]" text="[[text]]" color="[[color]]" height="[[height]]"></facebook-link>
+        </template>
+        <template is="dom-if" if="{{_isNetwork(network,'linkedin')}}">
+            <linkedin-link href="[[href]]" text="[[text]]" color="[[color]]" height="[[height]]"></linkedin-link>
+        </template>
+        <template is="dom-if" if="{{_isNetwork(network,'email')}}">
+            <email-link href="[[href]]" text="[[text]]" color="[[color]]" height="[[height]]"></email-link>
+        </template>
+        <template is="dom-if" if="{{_isNetwork(network,'behance')}}">
+            <behance-link href="[[href]]" text="[[text]]" color="[[color]]" height="[[height]]"></behance-link>
+        </template>
+        <template is="dom-if" if="{{_isNetwork(network,'youtube')}}">
+            <youtube-link href="[[href]]" text="[[text]]" color="[[color]]" height="[[height]]"></youtube-link>
+        </template>
+        <template is="dom-if" if="{{_isNetwork(network,'skype')}}">
+            <skype-link href="[[href]]" text="[[text]]" color="[[color]]" height="[[height]]"></skype-link>
+        </template>
+        <template is="dom-if" if="{{_isNetwork(network,'vimeo')}}">
+            <vimeo-link href="[[href]]" text="[[text]]" color="[[color]]" height="[[height]]"></vimeo-link>
+        </template>
+        <template is="dom-if" if="{{_isNetwork(network,'pinterest')}}">
+            <pinterest-link href="[[href]]" text="[[text]]" color="[[color]]" height="[[height]]"></pinterest-link>
+        </template>
+        <template is="dom-if" if="{{_isNetwork(network,'github')}}">
+            <github-link href="[[href]]" text="[[text]]" color="[[color]]" height="[[height]]"></github-link>
+        </template>
+        <template is="dom-if" if="{{_isNetwork(network,'instagram')}}">
+            <instagram-link href="[[href]]" text="[[text]]" color="[[color]]" height="[[height]]"></instagram-link>
+        </template>
+        <template is="dom-if" if="{{_isNetwork(network,'dribbble')}}">
+            <dribbble-link href="[[href]]" text="[[text]]" color="[[color]]" height="[[height]]"></dribbble-link>
+        </template>
+        <template is="dom-if" if="{{_isNetwork(network,'convoo')}}">
+            <convoo-link href="[[href]]" text="[[text]]" color="[[color]]" height="[[height]]"></convoo-link>
+        </template>
+        <template is="dom-if" if="{{_isNetwork(network,'snapchat')}}">
+            <snapchat-link href="[[href]]" text="[[text]]" color="[[color]]" height="[[height]]"></snapchat-link>
+        </template>
+        <template is="dom-if" if="{{_isNetwork(network,'googleplus')}}">
+            <googleplus-link href="[[href]]" text="[[text]]" color="[[color]]" height="[[height]]"></googleplus-link>
+        </template>
     </template>
-    <template is="dom-if" if="{{_isNetwork(network,'facebook')}}">
-        <facebook-link href="[[href]]" text="[[text]]" color="[[color]]" height="[[height]]"></facebook-link>
-    </template>
-    <template is="dom-if" if="{{_isNetwork(network,'linkedin')}}">
-        <linkedin-link href="[[href]]" text="[[text]]" color="[[color]]" height="[[height]]"></linkedin-link>
-    </template>
-    <template is="dom-if" if="{{_isNetwork(network,'email')}}">
-        <email-link href="[[href]]" text="[[text]]" color="[[color]]" height="[[height]]"></email-link>
-    </template>
-    <template is="dom-if" if="{{_isNetwork(network,'behance')}}">
-        <behance-link href="[[href]]" text="[[text]]" color="[[color]]" height="[[height]]"></behance-link>
-    </template>
-    <template is="dom-if" if="{{_isNetwork(network,'youtube')}}">
-        <youtube-link href="[[href]]" text="[[text]]" color="[[color]]" height="[[height]]"></youtube-link>
-    </template>
-    <template is="dom-if" if="{{_isNetwork(network,'skype')}}">
-        <skype-link href="[[href]]" text="[[text]]" color="[[color]]" height="[[height]]"></skype-link>
-    </template>
-    <template is="dom-if" if="{{_isNetwork(network,'vimeo')}}">
-        <vimeo-link href="[[href]]" text="[[text]]" color="[[color]]" height="[[height]]"></vimeo-link>
-    </template>
-    <template is="dom-if" if="{{_isNetwork(network,'pinterest')}}">
-        <pinterest-link href="[[href]]" text="[[text]]" color="[[color]]" height="[[height]]"></pinterest-link>
-    </template>
-    <template is="dom-if" if="{{_isNetwork(network,'github')}}">
-        <github-link href="[[href]]" text="[[text]]" color="[[color]]" height="[[height]]"></github-link>
-    </template>
-    <template is="dom-if" if="{{_isNetwork(network,'instagram')}}">
-        <instagram-link href="[[href]]" text="[[text]]" color="[[color]]" height="[[height]]"></instagram-link>
-    </template>
-    <template is="dom-if" if="{{_isNetwork(network,'dribbble')}}">
-        <dribbble-link href="[[href]]" text="[[text]]" color="[[color]]" height="[[height]]"></dribbble-link>
-    </template>
-    <template is="dom-if" if="{{_isNetwork(network,'convoo')}}">
-        <convoo-link href="[[href]]" text="[[text]]" color="[[color]]" height="[[height]]"></convoo-link>
-    </template>
-    <template is="dom-if" if="{{_isNetwork(network,'snapchat')}}">
-        <snapchat-link href="[[href]]" text="[[text]]" color="[[color]]" height="[[height]]"></snapchat-link>
-    </template>
-    
-</template>
+    <script>
+        class SocialLink extends Polymer.mixinBehaviors([SocialLinkBehavior], Polymer.Element) {
+            static get is() { return 'social-link'; }
+            static get properties() {
+                return {
+                    network: String
+                };
+            }
 
-<script>
-    Polymer({
-
-    is: 'social-link',
-    behaviors: [
-        SocialLinkBehavior
-    ],
-
-    properties: {
-        network: {
-            type: String
+            _isNetwork(thisNetwork, network) {
+                return thisNetwork == network;
+            }
         }
-    },
-
-    _isNetwork: function(thisNetwork,network){
-        return thisNetwork == network;
-    }
-
-    });
-</script>
+        customElements.define(SocialLink.is, SocialLink);
+    </script>
 </dom-module>

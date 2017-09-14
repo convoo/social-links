@@ -1,67 +1,84 @@
-<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../polymer/polymer-element.html">
 <link rel="import" href="../iron-flex-layout/iron-flex-layout.html">
 <link rel="import" href="social-link-behavior.html">
-
 <!--
 `vimeo-link`
-@demo demo/index.html 
+Sample usage of this element
+Example:
+    <vimeo-link></vimeo-link>
+Example:
+    <vimeo-link>
+      <h2>Hello vimeo-link</h2>
+   </vimeo-link>
+@demo demo/index.html
 -->
-
 <dom-module id="vimeo-link">
-<template>
-    <style>
-    :host {
-        display: inline-block;
-    }
-    a{
-        text-decoration: none;
-        color: black;
-    }
-        a:hover{
-        text-decoration: underline;
-        color: black;
-    }
-    .container {
-        cursor: hand;
-        cursor: pointer;
-        @apply(--layout-horizontal);
-    }
-    p {
-        margin: 0px 0px 0px 5px;
-        @apply(--layout-flex-none)
-    }
-    </style>
+    <template>
+        <style>
+             :host {
+                display: inline-block;
+            }
 
-<a href="{{href}}" target="_blank" style="color:{{color}}">
-    <div class="container">
+            a {
+                text-decoration: none;
+                color: black;
+            }
 
-        <svg viewBox="0 0 18.84 16.33" style="height:{{height}};fill:{{color}}; padding-left: 15px">
-            <path id="Vimeo" d="M16.46,0.25q-3.93-.13-5.32,4.41a3.65,3.65,0,0,1,1.4-.3Q14,4.36,13.8,6a7.33,7.33,0,0,1-1.26,2.84q-1.19,1.87-1.77,1.87-0.76,0-1.4-2.88Q9.15,6.95,8.61,3.47,8.1,0.25,5.91.46a6.22,6.22,0,0,0-2.78,1.7Q1.77,3.38.37,4.61L1.26,5.76a5.85,5.85,0,0,1,1.48-.89q1,0,1.82,3.05,0.76,2.8,1.52,5.6c0.76,2,1.69,3.05,2.78,3.05q2.66,0,6.5-5Q19.08,6.78,19.2,4,19.37,0.33,16.46.25Z" transform="translate(-0.37 -0.24)"/>
-        </svg>
+            a:hover {
+                text-decoration: underline;
+                color: black;
+            }
+
+            .container {
+                cursor: hand;
+                cursor: pointer;
+                @apply(--layout-horizontal);
+            }
+
+            p {
+                margin: 0px 0px 0px 5px;
+                @apply(--layout-flex-none)
+            }
+        </style>
+
+        <a href="{{href}}" target="_blank" style="color:{{color}}">
+            <div class="container">
+
+                <svg viewBox="0 0 18.84 16.33" style="height:{{height}};fill:{{color}}; padding-left: 15px">
+                    <path id="Vimeo" d="M16.46,0.25q-3.93-.13-5.32,4.41a3.65,3.65,0,0,1,1.4-.3Q14,4.36,13.8,6a7.33,7.33,0,0,1-1.26,2.84q-1.19,1.87-1.77,1.87-0.76,0-1.4-2.88Q9.15,6.95,8.61,3.47,8.1,0.25,5.91.46a6.22,6.22,0,0,0-2.78,1.7Q1.77,3.38.37,4.61L1.26,5.76a5.85,5.85,0,0,1,1.48-.89q1,0,1.82,3.05,0.76,2.8,1.52,5.6c0.76,2,1.69,3.05,2.78,3.05q2.66,0,6.5-5Q19.08,6.78,19.2,4,19.37,0.33,16.46.25Z"
+                        transform="translate(-0.37 -0.24)" />
+                </svg>
 
 
-        <template is="dom-if" if="{{text}}">
-            <p style="color:{{color}}; font-size: {{height}};">Vimeo<p>
-        </template>
-    </div>
-</a>
+                <template is="dom-if" if="{{text}}">
+                    <p style="color:{{color}}; font-size: {{height}};">Vimeo
+                        <p>
+                </template>
+            </div>
+        </a>
 
-</template>
+    </template>
 
-<script>
-    Polymer({
-
-    is: 'vimeo-link',
-    behaviors: [
-        SocialLinkBehavior
-    ],
-    properties: {
-        color: {
-            value: "#1ab7ea"
+    <script>
+        class VimeoLink extends Polymer.mixinBehaviors([SocialLinkBehavior], Polymer.Element) {
+            static get is() { return 'vimeo-link'; }
+            static get properties() {
+                return {
+                    color: {
+                        type: String,
+                        value: '#1ab7ea'
+                    }
+                };
+            }
+            //static get observers() {return [];}
+            //static get actions() {return MixinActions();}
+            connectedCallback() {
+                super.connectedCallback();
+            }
+            ready() {
+                super.ready();
+            }
         }
-    }
-
-
-    });
-</script>
+        customElements.define(VimeoLink.is, VimeoLink);
+    </script>
 </dom-module>
