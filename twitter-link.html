@@ -1,65 +1,81 @@
-<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../polymer/polymer-element.html">
 <link rel="import" href="../iron-flex-layout/iron-flex-layout.html">
 <link rel="import" href="social-link-behavior.html">
-
 <!--
 `twitter-link`
-@demo demo/index.html 
+Sample usage of this element
+Example:
+    <twitter-link></twitter-link>
+Example:
+    <twitter-link>
+      <h2>Hello twitter-link</h2>
+   </twitter-link>
+@demo demo/index.html
 -->
-
 <dom-module id="twitter-link">
-<template>
-    <style>
-    :host {
-        display: inline-block;
-    }
-    a{
-        text-decoration: none;
-        color: black;
-    }
-        a:hover{
-        text-decoration: underline;
-        color: black;
-    }
-    .container {
-        cursor: hand;
-        cursor: pointer;
-        @apply(--layout-horizontal);
-    }
-    p {
-        margin: 0px 0px 0px 5px;
-        @apply(--layout-flex-none)
-    }
-    </style>
+    <template>
+        <style>
+             :host {
+                display: inline-block;
+            }
 
-<a href="{{href}}" target="_blank" style="color:{{color}}">
-    <div class="container">
+            a {
+                text-decoration: none;
+                color: black;
+            }
 
-        <svg viewBox="0 0 20.34 16.17" style="height:{{height}};fill:{{color}}; padding-left: 15px">
-            <path class="515a544b-2ee6-4052-8329-f9002443fb0f" d="M7,16.61A11.39,11.39,0,0,0,18.43,5.14q0-.26,0-0.52a8.2,8.2,0,0,0,2-2.09,8,8,0,0,1-2.31.63A4,4,0,0,0,19.89.94a8.08,8.08,0,0,1-2.56,1,4,4,0,0,0-6.87,3.68A11.44,11.44,0,0,1,2.15,1.38,4,4,0,0,0,3.4,6.76a4,4,0,0,1-1.83-.5s0,0,0,.05a4,4,0,0,0,3.23,4A4,4,0,0,1,3,10.33a4,4,0,0,0,3.77,2.8,8.09,8.09,0,0,1-5,1.73,8.19,8.19,0,0,1-1-.06A11.41,11.41,0,0,0,7,16.61" transform="translate(-0.36 -0.55)"/>
-        </svg>
-        <template is="dom-if" if="{{text}}">
-            <p style="color:{{color}}; font-size: {{height}};">Twitter<p>
-        </template>
-    </div>
-</a>
+            a:hover {
+                text-decoration: underline;
+                color: black;
+            }
 
-</template>
+            .container {
+                cursor: hand;
+                cursor: pointer;
+                @apply(--layout-horizontal);
+            }
 
-<script>
-    Polymer({
+            p {
+                margin: 0px 0px 0px 5px;
+                @apply(--layout-flex-none)
+            }
+        </style>
 
-    is: 'twitter-link',
-    behaviors: [
-        SocialLinkBehavior
-    ],
-    properties: {
-        color: {
-            value: "#1da1f2"
+        <a href="{{href}}" target="_blank" style="color:{{color}}">
+            <div class="container">
+
+                <svg viewBox="0 0 20.34 16.17" style="height:{{height}};fill:{{color}}; padding-left: 15px">
+                    <path class="515a544b-2ee6-4052-8329-f9002443fb0f" d="M7,16.61A11.39,11.39,0,0,0,18.43,5.14q0-.26,0-0.52a8.2,8.2,0,0,0,2-2.09,8,8,0,0,1-2.31.63A4,4,0,0,0,19.89.94a8.08,8.08,0,0,1-2.56,1,4,4,0,0,0-6.87,3.68A11.44,11.44,0,0,1,2.15,1.38,4,4,0,0,0,3.4,6.76a4,4,0,0,1-1.83-.5s0,0,0,.05a4,4,0,0,0,3.23,4A4,4,0,0,1,3,10.33a4,4,0,0,0,3.77,2.8,8.09,8.09,0,0,1-5,1.73,8.19,8.19,0,0,1-1-.06A11.41,11.41,0,0,0,7,16.61"
+                        transform="translate(-0.36 -0.55)" />
+                </svg>
+                <template is="dom-if" if="{{text}}">
+                    <p style="color:{{color}}; font-size: {{height}};">Twitter
+                        <p>
+                </template>
+            </div>
+        </a>
+
+    </template>
+    <script>
+        class TwitterLink extends Polymer.mixinBehaviors([SocialLinkBehavior], Polymer.Element) {
+            static get is() { return 'twitter-link'; }
+            static get properties() {
+                return {
+                    color: {
+                        type: String,
+                        value: '#1da1f2'
+                    }
+                };
+            }
+            //static get observers() {return [];}
+            //static get actions() {return MixinActions();}
+            connectedCallback() {
+                super.connectedCallback();
+            }
+            ready() {
+                super.ready();
+            }
         }
-    }
-
-
-    });
-</script>
+        customElements.define(TwitterLink.is, TwitterLink);
+    </script>
 </dom-module>

@@ -1,66 +1,75 @@
-<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../polymer/polymer-element.html">
 <link rel="import" href="../iron-flex-layout/iron-flex-layout.html">
 <link rel="import" href="social-link-behavior.html">
-
 <!--
 `facebook-link`
-@demo demo/index.html 
+Sample usage of this element
+Example:
+    <facebook-link></facebook-link>
+Example:
+    <facebook-link>
+      <h2>Hello facebook-link</h2>
+   </facebook-link>
+@demo demo/index.html
 -->
-
 <dom-module id="facebook-link">
-<template>
-    <style>
-    :host {
-        display: inline-block;
-    }
-    a{
-        text-decoration: none;
-        color: black;
-    }
-        a:hover{
-        text-decoration: underline;
-        color: black;
-    }
-    .container {
-        cursor: hand;
-        cursor: pointer;
-        @apply(--layout-horizontal);
-    }
-    p {
-        margin: 0px 0px 0px 5px;
-        @apply(--layout-flex-none)
-    }
-    </style>
+    <template>
+        <style>
+             :host {
+                display: inline-block;
+            }
 
-<a href="{{href}}" target="_blank" style="color:{{color}}">
-    <div class="container">
+            a {
+                text-decoration: none;
+                color: black;
+            }
 
-        <svg viewBox="0 0 7.94 16.74" style="height:{{height}};fill:{{color}}; padding-left: 15px">
-            <path d="M5.39,16.79H2.29V8.52H0.22V5.67H2.29V4c0-2.32.63-3.74,3.37-3.74H7.94V3.1H6.51c-1.07,0-1.12.4-1.12,1.14V5.67H8L7.65,8.52H5.39v8.27Z" transform="translate(-0.12 -0.15)" style="stroke:#000;stroke-miterlimit:10;stroke-width:0.20000000298023224px"/>
-        </svg>
+            a:hover {
+                text-decoration: underline;
+                color: black;
+            }
 
-        <template is="dom-if" if="{{text}}">
-            <p style="color:{{color}}; font-size: {{height}};">Facebook<p>
-        </template>
-    </div>
-</a>
+            .container {
+                cursor: hand;
+                cursor: pointer;
+                @apply(--layout-horizontal);
+            }
 
-</template>
+            p {
+                margin: 0px 0px 0px 5px;
+                @apply(--layout-flex-none)
+            }
+        </style>
 
-<script>
-    Polymer({
+        <a href="{{href}}" target="_blank" style="color:{{color}}">
+            <div class="container">
 
-    is: 'facebook-link',
-    behaviors: [
-        SocialLinkBehavior
-    ],
-    properties: {
-        color: {
-            value: "#3b5998"
+                <svg viewBox="0 0 7.94 16.74" style="height:{{height}};fill:{{color}}; padding-left: 15px">
+                    <path d="M5.39,16.79H2.29V8.52H0.22V5.67H2.29V4c0-2.32.63-3.74,3.37-3.74H7.94V3.1H6.51c-1.07,0-1.12.4-1.12,1.14V5.67H8L7.65,8.52H5.39v8.27Z"
+                        transform="translate(-0.12 -0.15)" style="stroke:#000;stroke-miterlimit:10;stroke-width:0.20000000298023224px"
+                    />
+                </svg>
+
+                <template is="dom-if" if="{{text}}">
+                    <p style="color:{{color}}; font-size: {{height}};">Facebook
+                        <p>
+                </template>
+            </div>
+        </a>
+
+    </template>
+    <script>
+        class FacebookLink extends Polymer.mixinBehaviors([SocialLinkBehavior],Polymer.Element) {
+            static get is() { return 'facebook-link'; }
+            static get properties() {
+                return {
+                    color: {
+                        type: String,
+                        value: '#3b5998'
+                    }
+                };
+            }            
         }
-    }
-
-
-    });
-</script>
+        customElements.define(FacebookLink.is, FacebookLink);
+    </script>
 </dom-module>

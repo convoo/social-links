@@ -1,64 +1,74 @@
-<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../polymer/polymer-element.html">
 <link rel="import" href="../iron-flex-layout/iron-flex-layout.html">
 <link rel="import" href="social-link-behavior.html">
-
 <!--
 `linkedin-link`
-@demo demo/index.html 
+Sample usage of this element
+Example:
+    <linkedin-link></linkedin-link>
+Example:
+    <linkedin-link>
+      <h2>Hello linkedin-link</h2>
+   </linkedin-link>
+@demo demo/index.html
 -->
-
 <dom-module id="linkedin-link">
-<template>
-    <style>
-    :host {
-        display: inline-block;
-    }
-    a{
-        text-decoration: none;
-        color: black;
-    }
-        a:hover{
-        text-decoration: underline;
-        color: black;
-    }
-    .container {
-        cursor: hand;
-        cursor: pointer;
-        @apply(--layout-horizontal);
-    }
-    p {
-        margin: 0px 0px 0px 5px;
-        @apply(--layout-flex-none)
-    }
-    </style>
+    <template>
+        <style>
+             :host {
+                display: inline-block;
+            }
 
-<a href="{{href}}" target="_blank" style="color:{{color}}">
-    <div class="container">
-        <svg viewBox="0 0 16.91 16.16" style="height:{{height}};fill:{{color}}; padding-left: 15px">
-            <path id="LinkedIn" d="M17.19,10.24v6.18H13.61V10.65c0-1.45-.52-2.44-1.81-2.44A2,2,0,0,0,10,9.53a2.45,2.45,0,0,0-.12.87v6H6.26s0-9.76,0-10.77H9.84V7.17l0,0h0v0a3.56,3.56,0,0,1,3.23-1.78C15.42,5.39,17.19,6.93,17.19,10.24ZM2.51,0.45a1.87,1.87,0,1,0,0,3.72h0A1.87,1.87,0,1,0,2.51.45Zm-1.81,16H4.28V5.64H0.69V16.42Z" transform="translate(-0.38 -0.35)" style="stroke:#000;stroke-miterlimit:10;stroke-width:0.20000000298023224px"/>
-        </svg>
+            a {
+                text-decoration: none;
+                color: black;
+            }
 
-        <template is="dom-if" if="{{text}}">
-            <p style="color:{{color}}; font-size: {{height}};">Linked In<p>
-        </template>
-    </div>
-</a>
+            a:hover {
+                text-decoration: underline;
+                color: black;
+            }
 
-</template>
+            .container {
+                cursor: hand;
+                cursor: pointer;
+                @apply(--layout-horizontal);
+            }
 
-<script>
-    Polymer({
+            p {
+                margin: 0px 0px 0px 5px;
+                @apply(--layout-flex-none)
+            }
+        </style>
 
-    is: 'linkedin-link',
-    behaviors: [
-        SocialLinkBehavior
-    ],
-    properties: {
-        color: {
-            value: "#0077b5"
+        <a href="{{href}}" target="_blank" style="color:{{color}}">
+            <div class="container">
+                <svg viewBox="0 0 16.91 16.16" style="height:{{height}};fill:{{color}}; padding-left: 15px">
+                    <path id="LinkedIn" d="M17.19,10.24v6.18H13.61V10.65c0-1.45-.52-2.44-1.81-2.44A2,2,0,0,0,10,9.53a2.45,2.45,0,0,0-.12.87v6H6.26s0-9.76,0-10.77H9.84V7.17l0,0h0v0a3.56,3.56,0,0,1,3.23-1.78C15.42,5.39,17.19,6.93,17.19,10.24ZM2.51,0.45a1.87,1.87,0,1,0,0,3.72h0A1.87,1.87,0,1,0,2.51.45Zm-1.81,16H4.28V5.64H0.69V16.42Z"
+                        transform="translate(-0.38 -0.35)" style="stroke:#000;stroke-miterlimit:10;stroke-width:0.20000000298023224px"
+                    />
+                </svg>
+
+                <template is="dom-if" if="{{text}}">
+                    <p style="color:{{color}}; font-size: {{height}};">Linked In
+                        <p>
+                </template>
+            </div>
+        </a>
+
+    </template>
+    <script>
+        class LinkedLink extends Polymer.mixinBehaviors([SocialLinkBehavior],Polymer.Element) {
+            static get is() { return 'linkedin-link'; }
+            static get properties() {
+                return {
+                    color: {
+                        type: String,
+                        value: '#0077b5'
+                    }
+                };
+            }
         }
-    }
-
-    });
-</script>
+        customElements.define(LinkedLink.is, LinkedLink);
+    </script>
 </dom-module>

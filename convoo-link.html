@@ -1,66 +1,74 @@
-<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../polymer/polymer-element.html">
 <link rel="import" href="../iron-flex-layout/iron-flex-layout.html">
 <link rel="import" href="social-link-behavior.html">
-
 <!--
 `convoo-link`
-@demo demo/index.html 
+Sample usage of this element
+Example:
+    <convoo-link></convoo-link>
+Example:
+    <convoo-link>
+      <h2>Hello convoo-link</h2>
+   </convoo-link>
+@demo demo/index.html
 -->
-
 <dom-module id="convoo-link">
-<template>
-    <style>
-    :host {
-        display: inline-block;
-    }
-    a{
-        text-decoration: none;
-        color: black;
-    }
-        a:hover{
-        text-decoration: underline;
-        color: black;
-    }
-    .container {
-        cursor: hand;
-        cursor: pointer;
-        @apply(--layout-horizontal);
-    }
-    p {
-        margin: 0px 0px 0px 5px;
-        @apply(--layout-flex-none)
-    }
-    </style>
+    <template>
+        <style>
+             :host {
+                display: inline-block;
+            }
 
-<a href="{{href}}" target="_blank" style="color:{{color}}">
-    <div class="container">
+            a {
+                text-decoration: none;
+                color: black;
+            }
 
-        <svg viewBox="0 0 16.23 16.33" style="height:{{height}};fill:{{color}}; padding-left: 15px">
-            <path d="M0.37,8.79a10.13,10.13,0,0,1,1.51-5.6c1.3-2,3.61-3.35,6-2.61S11.8,3.65,12.37,6c0.31,1.24.14,2.54,0.45,3.77a2.14,2.14,0,0,0,.91,1.45,1,1,0,0,0,.8-0.06,3.36,3.36,0,0,1,.68.1c0.19,0,.07.09,0.14,0a4.92,4.92,0,0,0-.08-0.64,3.8,3.8,0,0,1,.13-1.11,5.1,5.1,0,0,0,0-2.2c-0.15-.59-0.51-1.55-1.25-1.56a1.07,1.07,0,0,0-.83.52C13.21,6.37,12.91,7,12.9,7s-0.43-2-.49-2.15a4.31,4.31,0,0,1-.37-1,1.53,1.53,0,0,1,.66-0.71c1.44-1,2.7.5,3.22,1.75a9.22,9.22,0,0,1-.41,7.87c-0.8,1.27-2.22,1.76-3.32.54a6.84,6.84,0,0,1-1.41-4c-0.11-1.44-.08-2.84-1.15-4a2.38,2.38,0,0,0-3.54,0A4.84,4.84,0,0,0,5,9.6c0.13,0.63.51,1.16,0.63,1.78a2.83,2.83,0,0,1-.05,1.08,4.54,4.54,0,0,0-.23,1c0.53-.25,1-0.59,1.56-0.84a8,8,0,0,1,1.42-.22,2.64,2.64,0,0,0,1.15-.68A3.61,3.61,0,0,0,10.09,11a8.33,8.33,0,0,1,.36-0.78s0.25,1.21.28,1.33a7.45,7.45,0,0,0,.46,1.22,1.49,1.49,0,0,1,.27.59,2.21,2.21,0,0,1-.39.65,7.2,7.2,0,0,1-1,1.15,5.05,5.05,0,0,1-5.19,1.32,6.51,6.51,0,0,1-3.49-3.27A9.53,9.53,0,0,1,.6,10.77c-0.07-.31-0.11-0.63-0.15-1a3.94,3.94,0,0,0-.08-1C0.37,8.64.38,8.81,0.37,8.79Z" transform="translate(-0.37 -0.38)"/>
-        </svg>
+            a:hover {
+                text-decoration: underline;
+                color: black;
+            }
 
-        <template is="dom-if" if="{{text}}">
-            <p style="color:{{color}}; font-size: {{height}};">Convoo<p>
-        </template>
-    </div>
-</a>
+            .container {
+                cursor: hand;
+                cursor: pointer;
+                @apply(--layout-horizontal);
+            }
 
-</template>
+            p {
+                margin: 0px 0px 0px 5px;
+                @apply(--layout-flex-none)
+            }
+        </style>
 
-<script>
-    Polymer({
+        <a href="{{href}}" target="_blank" style="color:{{color}}">
+            <div class="container">
 
-    is: 'convoo-link',
-    behaviors: [
-        SocialLinkBehavior
-    ],
-    properties: {
-        color: {
-            value: "#b03142"
+                <svg viewBox="0 0 16.23 16.33" style="height:{{height}};fill:{{color}}; padding-left: 15px">
+                    <path d="M0.37,8.79a10.13,10.13,0,0,1,1.51-5.6c1.3-2,3.61-3.35,6-2.61S11.8,3.65,12.37,6c0.31,1.24.14,2.54,0.45,3.77a2.14,2.14,0,0,0,.91,1.45,1,1,0,0,0,.8-0.06,3.36,3.36,0,0,1,.68.1c0.19,0,.07.09,0.14,0a4.92,4.92,0,0,0-.08-0.64,3.8,3.8,0,0,1,.13-1.11,5.1,5.1,0,0,0,0-2.2c-0.15-.59-0.51-1.55-1.25-1.56a1.07,1.07,0,0,0-.83.52C13.21,6.37,12.91,7,12.9,7s-0.43-2-.49-2.15a4.31,4.31,0,0,1-.37-1,1.53,1.53,0,0,1,.66-0.71c1.44-1,2.7.5,3.22,1.75a9.22,9.22,0,0,1-.41,7.87c-0.8,1.27-2.22,1.76-3.32.54a6.84,6.84,0,0,1-1.41-4c-0.11-1.44-.08-2.84-1.15-4a2.38,2.38,0,0,0-3.54,0A4.84,4.84,0,0,0,5,9.6c0.13,0.63.51,1.16,0.63,1.78a2.83,2.83,0,0,1-.05,1.08,4.54,4.54,0,0,0-.23,1c0.53-.25,1-0.59,1.56-0.84a8,8,0,0,1,1.42-.22,2.64,2.64,0,0,0,1.15-.68A3.61,3.61,0,0,0,10.09,11a8.33,8.33,0,0,1,.36-0.78s0.25,1.21.28,1.33a7.45,7.45,0,0,0,.46,1.22,1.49,1.49,0,0,1,.27.59,2.21,2.21,0,0,1-.39.65,7.2,7.2,0,0,1-1,1.15,5.05,5.05,0,0,1-5.19,1.32,6.51,6.51,0,0,1-3.49-3.27A9.53,9.53,0,0,1,.6,10.77c-0.07-.31-0.11-0.63-0.15-1a3.94,3.94,0,0,0-.08-1C0.37,8.64.38,8.81,0.37,8.79Z"
+                        transform="translate(-0.37 -0.38)" />
+                </svg>
+
+                <template is="dom-if" if="{{text}}">
+                    <p style="color:{{color}}; font-size: {{height}};">Convoo
+                        <p>
+                </template>
+            </div>
+        </a>
+
+    </template>
+    <script>
+        class ConvooLink extends Polymer.mixinBehaviors([SocialLinkBehavior], Polymer.Element) {
+            static get is() { return 'convoo-link'; }
+            static get properties() {
+                return {
+                    color: {
+                        type: String,
+                        value: '#b03142'
+                    }
+                };
+            }
         }
-    }
-
-
-    });
-</script>
+        customElements.define(ConvooLink.is, ConvooLink);
+    </script>
 </dom-module>
